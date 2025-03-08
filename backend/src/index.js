@@ -5,17 +5,17 @@ const app = express()
 const port = 4422
 
 app.get('/', (req, res) => {
-  const page = path.join(__dirname, '../../frontend/home.html')
+  const page = path.join(__dirname, '../../frontend/pages/home.html')
   res.sendFile(page);
 })
 
 app.get('/home', (req, res) => {
-  const page = path.join(__dirname, '../../frontend/home.html')
+  const page = path.join(__dirname, '../../frontend/pages/home.html')
   res.sendFile(page);
 })
 
 app.get('/about', (req, res) => {
-  const page = path.join(__dirname, '../../frontend/about.html')
+  const page = path.join(__dirname, '../../frontend/pages/about.html')
   res.sendFile(page);
 });
 
