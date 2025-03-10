@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<!-- ejs inserts header -->
+<%- include('partials/header'); %>
+
+<h1>Dynamic Page</h1>
+
+<div id="content">
+    <!-- ejs inserts dynamic content from the path passed in variable content_path -->
+    <%- include(content_path); %>
+</div>
+
+<!-- ejs inserts footer -->
+<%- include('partials/footer'); %>
+
+</body>
+</html>
