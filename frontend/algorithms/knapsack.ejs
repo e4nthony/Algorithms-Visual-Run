@@ -1,0 +1,31 @@
+/**
+ * 
+ * @param {*} weights_arr - weights array
+ * @param {*} values_arr - values array
+ * @param {*} max_w
+ */
+function knapSack (weights_arr, values_arr, max_w){
+
+    const n = weights_arr.length;  //total sacks count
+
+    sortSacks(weights_arr, values_arr); //sort sacks by their value/weight in decreasing order 
+
+    const x = new Array(n);
+    for (let i = 0; i < n; i++) {
+        x[i] = 0;
+    }
+
+    let weight = 0;  //current_weight
+    let i = 0;       //current_index
+
+    while( weight < max_w && i <= n ){
+        if (weight + weights_arr[i] <= max_w){
+            x[i] = 1;
+        }else{
+            x[i] = (max_w - weight) / weights_arr[i];
+        }
+        weight = weight + x[i] * weights_arr[i];
+        i++;
+    }
+    return x;
+}

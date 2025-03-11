@@ -8,3 +8,8 @@ body {
 .header { 
     background-color: #dbdbdb;
 }
+
+
+code {
+    font-family: 'Cascadia Code', 'Fira Code', monospace;
+}

@@ -39,6 +39,18 @@ app.get('/about', (req, res) => {
 
 });
 
+app.get('/knapsack_page', (req, res) => {
+  const page = path.join(__dirname, '../../frontend/views/knapsack_page.ejs');
+
+  let codeFilePath = path.join(__dirname, '../../frontend/algorithms/knapsack.ejs');
+
+  res.render(page, { 
+    title: 'knapsack_page',
+    code_path: codeFilePath 
+  });
+
+});
+
 app.get('/dynamic_page/', (req, res) => {
   const page = path.join(__dirname, '../../frontend/views/dynamic_page.ejs')
 
@@ -68,7 +80,7 @@ app.get('/dynamic_page/:initialContentType', (req, res) => {
   }
 
   res.render(page, { 
-    tittle: 'dynamic_page with parameter',
+    title: 'dynamic_page with parameter',
     content_path: contentFilePath 
   });
 
