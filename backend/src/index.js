@@ -10,23 +10,39 @@ app.set('view engine', 'ejs');
 // -- Routes --
 app.get('/', (req, res) => {
   const page = path.join(__dirname, '../../frontend/views/home.ejs')
-  res.render(page);
+  
+  res.render(page, { 
+    title: '/'
+  });
+
 })
 
 app.get('/home', (req, res) => {
   const page = path.join(__dirname, '../../frontend/views/home.ejs')
-  res.render(page);
+  
+  res.render(page, { 
+    title: 'home'
+  });
+
 })
 
 app.get('/about', (req, res) => {
   const page = path.join(__dirname, '../../frontend/views/about.ejs')
-  res.render(page);
+  
+  res.render(page, { 
+    title: 'about'
+  });
+
 });
 
 app.get('/dynamic_page/', (req, res) => {
   const page = path.join(__dirname, '../../frontend/views/dynamic_page.ejs')
 
-  res.render(page, { content_path: 'partials/default_dynamic_content.ejs' });
+  res.render(page, { 
+    title: 'dynamic_page',
+    content_path: 'partials/default_dynamic_content.ejs' 
+  });
+
 });
 
 app.get('/dynamic_page/:initialContentType', (req, res) => {
@@ -47,7 +63,11 @@ app.get('/dynamic_page/:initialContentType', (req, res) => {
       break;
   }
 
-  res.render(page, { content_path: contentFilePath });
+  res.render(page, { 
+    tittle: 'dynamic_page with parameter',
+    content_path: contentFilePath 
+  });
+
 });
 
 
