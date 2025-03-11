@@ -1,11 +1,15 @@
 const express = require('express')
-var path = require('path');
+const path = require('path');
 
 const app = express()
 const port = 4422
 
+// serve public folder content to clent requests 
+app.use(express.static(path.join(__dirname, '../../frontend/public')));
+
 // set the view engine to ejs
 app.set('view engine', 'ejs');
+
 
 // -- Routes --
 app.get('/', (req, res) => {
