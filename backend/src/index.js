@@ -11,12 +11,18 @@ app.use(express.static(path.join(__dirname, '../../frontend/public')));
 app.set('view engine', 'ejs');
 
 
+// init params default values
+var title = '';
+var stylesheets_list = '';
+
+
 // -- Routes --
 app.get('/', (req, res) => {
   const page = path.join(__dirname, '../../frontend/views/home.ejs')
   
   res.render(page, { 
-    title: '/'
+    title: '/',
+    stylesheets_list
   });
 
 })
@@ -25,7 +31,8 @@ app.get('/home', (req, res) => {
   const page = path.join(__dirname, '../../frontend/views/home.ejs')
   
   res.render(page, { 
-    title: 'home'
+    title: 'home',
+    stylesheets_list
   });
 
 })
@@ -34,7 +41,8 @@ app.get('/about', (req, res) => {
   const page = path.join(__dirname, '../../frontend/views/about.ejs')
   
   res.render(page, { 
-    title: 'about'
+    title: 'about',
+    stylesheets_list
   });
 
 });
@@ -42,10 +50,13 @@ app.get('/about', (req, res) => {
 app.get('/knapsack_page', (req, res) => {
   const page = path.join(__dirname, '../../frontend/views/knapsack_page.ejs');
 
-  let codeFilePath = path.join(__dirname, '../../frontend/algorithms/knapsack.ejs');
+  const codeFilePath = path.join(__dirname, '../../frontend/algorithms/knapsack.ejs');
+//path.join(__dirname, '../../frontend/public/styles/knapsack_styles.css');
+  const ks_stylesheets_list = '<link rel="stylesheet" href="/styles/knapsack_styles.css">'
 
   res.render(page, { 
     title: 'knapsack_page',
+    stylesheets_list: ks_stylesheets_list,
     code_path: codeFilePath 
   });
 
@@ -56,6 +67,7 @@ app.get('/dynamic_page/', (req, res) => {
 
   res.render(page, { 
     title: 'dynamic_page',
+    stylesheets_list,
     content_path: 'partials/default_dynamic_content.ejs' 
   });
 
@@ -81,6 +93,7 @@ app.get('/dynamic_page/:initialContentType', (req, res) => {
 
   res.render(page, { 
     title: 'dynamic_page with parameter',
+    stylesheets_list,
     content_path: contentFilePath 
   });
 
