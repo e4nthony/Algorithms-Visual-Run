@@ -54,6 +54,60 @@
             panel.classList.add("show");
         }, 10);
     }
+
+
+    function generateTable() {
+        var weight = ["1", "2", "2"];
+        var value = ["25", "30", "22"];
+
+        var vdw = [];
+        //calc Value/Weight array
+        for (var i = 0; i < weight.length; i++) {
+            vdw.push(parseFloat(value[i]) / parseFloat(weight[i]));
+        }
+
+        var gridData = [
+            ["Weight", ...weight],
+            ["Value", ...value],
+            ["Value/Weight", ...vdw]
+        ];
+
+        const gridContainer = document.getElementById('tv-grid');
+
+        const numColumns = weight.length + 1;
+
+        let columnTemplate = '';
+        for (let i = 0; i < numColumns; i++) {
+            columnTemplate += 'auto ';
+        }
+        columnTemplate = columnTemplate.trim();
+
+        gridContainer.style.gridTemplateColumns = columnTemplate;
+
+
+        gridData.forEach(row => {
+            row.forEach((cell) => {
+                const div = document.createElement('div');
+                div.classList.add('tv-cell');
+                div.textContent = cell;
+
+                gridContainer.appendChild(div);
+            });
+        });
+    }
+    generateTable();
+
+
+    function addNewCell(a_value, a_weight) {
+        
+        a_vdw = parseFloat(a_value) / parseFloat(a_weight)
+
+        var newGridData = [
+            [...newGridData[0], a_weight],
+            [...newGridData[1], a_value],
+            [...newGridData[2], a_vdw]
+        ];
+    }
 </script>
 
 

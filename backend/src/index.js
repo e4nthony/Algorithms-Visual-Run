@@ -58,9 +58,8 @@ app.get('/knapsack_page', (req, res) => {
     title: 'knapsack_page',
     stylesheets_list: ks_stylesheets_list,
     code_path: codeFilePath,
-    table_content: 'TABLE'
+    table_content: 'partials/tables_content/knapsack_table.ejs'
   });
-
 });
 
 app.get('/dynamic_page/', (req, res) => {
