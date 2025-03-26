@@ -1,7 +1,17 @@
-<div id="code_viewer">
-    <pre>
-        <code>
-            <%- include(code_path); %>
-        </code>
-    </pre>
+<div id="code-viewer-frame">
+    <button id="cv-show-btn" onclick="openCodeViewer()">
+        Show Code
+    </button>
+
+    <div id="code-viewer" class="code-viewer show">
+        <button id="cv-close-btn" onclick="closeCodeViewer()">
+            X
+        </button>
+
+        <pre>
+            <code>
+                <%- include(code_path); %>
+            </code>
+        </pre>
+    </div>
 </div>

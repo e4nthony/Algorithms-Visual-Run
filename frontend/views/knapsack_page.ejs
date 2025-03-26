@@ -9,7 +9,53 @@
 
 <%- include('partials/code_viewer'); %>
 
+<%- include('partials/table_viewer'); %>
+
 <%- include('partials/footer'); %><!-- ejs inserts footer -->
+
+<script>
+    
+    function closeCodeViewer() {
+        var panel = document.getElementById("code-viewer");
+
+        panel.classList.remove("show");
+
+        setTimeout(function () {
+            panel.style.display = "none";
+        }, 500); //500ms
+    }
+
+    function openCodeViewer() {
+        var panel = document.getElementById("code-viewer");
+        
+        panel.style.display = "block";
+
+        setTimeout(function () {
+            panel.classList.add("show");
+        }, 10);
+    }
+
+    function closeTableViewer() {
+        var panel = document.getElementById("table-viewer");
+
+        panel.classList.remove("show");
+
+        setTimeout(function () {
+            panel.style.display = "none";
+        }, 500); //500ms
+    }
+
+    function openTableViewer() {
+        var panel = document.getElementById("table-viewer");
+        
+        panel.style.display = "block";
+
+        setTimeout(function () {
+            panel.classList.add("show");
+        }, 10);
+    }
+</script>
+
 
 </body>
 </html>

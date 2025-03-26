@@ -57,7 +57,8 @@ app.get('/knapsack_page', (req, res) => {
   res.render(page, { 
     title: 'knapsack_page',
     stylesheets_list: ks_stylesheets_list,
-    code_path: codeFilePath 
+    code_path: codeFilePath,
+    table_content: 'TABLE'
   });
 
 });
